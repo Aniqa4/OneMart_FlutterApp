@@ -13,152 +13,65 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
-          title: const Text("Shop"),
-          actions: [
-            IconButton(
-              onPressed: () {},
-              icon: const Icon(Icons.shopping_cart_outlined),
-            ),
-          ],
+          title: const Text('My App'),
+          backgroundColor: Colors.deepPurple,
+          foregroundColor: Colors.white,
         ),
-
-        body: Padding(
-          padding: const EdgeInsets.all(16),
+        body: const Center(
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisSize: MainAxisSize.min,
             children: [
-              const Text(
-                "Welcome to our store",
+              Text(
+                'Hello Flutter!',
                 style: TextStyle(
-                  fontSize: 24,
+                  fontSize: 30,
                   fontWeight: FontWeight.bold,
+                  color: Colors.deepPurple,
                 ),
               ),
-
-              const SizedBox(height: 20),
-
-              TextField(
-                decoration: InputDecoration(
-                  hintText: "Search products...",
-                  prefixIcon: const Icon(Icons.search),
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(12),
-                  ),
-                ),
-              ),
-
-              const SizedBox(height: 24),
-
-              const Text(
-                "Categories",
+              SizedBox(height: 12),
+              Text(
+                'Another text line!',
                 style: TextStyle(
                   fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-
-              const SizedBox(height: 12),
-
-              SizedBox(
-                height: 45,
-                child: ListView(
-                  scrollDirection: Axis.horizontal,
-                  children: [
-                    _category("All"),
-                    _category("Clothes"),
-                    _category("Shoes"),
-                    _category("Bags"),
-                    _category("Electronics"),
-                  ],
-                ),
-              ),
-
-              const SizedBox(height: 24),
-
-              const Text(
-                "Popular Products",
-                style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-
-              const SizedBox(height: 12),
-
-              Expanded(
-                child: GridView.builder(
-                  gridDelegate:
-                      const SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 2,
-                    crossAxisSpacing: 12,
-                    mainAxisSpacing: 12,
-                    childAspectRatio: 0.7,
-                  ),
-                  itemCount: 6,
-                  itemBuilder: (context, index) {
-                    return _productCard(index);
-                  },
+                  color: Colors.black87,
                 ),
               ),
             ],
           ),
         ),
-      ),
-    );
-  }
-
-  Widget _category(String name) {
-    return Container(
-      margin: const EdgeInsets.only(right: 10),
-      child: Chip(
-        label: Text(name),
-      ),
-    );
-  }
-
-  Widget _productCard(int index) {
-    return Card(
-      elevation: 2,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Expanded(
-            child: Container(
-              width: double.infinity,
-              color: Colors.grey[200],
-              child: const Icon(
-                Icons.image_outlined,
-                size: 60,
-                color: Colors.grey,
+        bottomNavigationBar: PreferredSize(
+          preferredSize: const Size.fromHeight(60),
+          child: Container(
+            height: 60,
+            decoration: const BoxDecoration(
+              color: Colors.white,
+              border: Border(
+                top: BorderSide(
+                  color: Colors.deepPurple,
+                  width: 1.5,
+                ),
               ),
             ),
-          ),
-
-          Padding(
-            padding: const EdgeInsets.all(10),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                Text(
-                  "Product ${index + 1}",
-                  style: const TextStyle(
-                    fontWeight: FontWeight.bold,
-                  ),
+                IconButton(
+                  onPressed: () {},
+                  icon: const Icon(Icons.home, color: Colors.purple),
                 ),
-
-                const SizedBox(height: 5),
-
-                const Text(
-                  "\$25.00",
-                  style: TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold,
-                  ),
+                IconButton(
+                  onPressed: () {},
+                  icon: const Icon(Icons.search, color: Colors.purple),
+                ),
+                IconButton(
+                  onPressed: () {},
+                  icon: const Icon(Icons.person, color: Colors.purple),
                 ),
               ],
             ),
           ),
-        ],
+        ),
       ),
     );
   }
